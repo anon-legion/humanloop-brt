@@ -3,7 +3,6 @@ import 'express-async-errors'; // import immediately after express to patch expr
 import dotenv from 'dotenv';
 import cors from 'cors';
 import xss from 'xss-clean';
-import { Humanloop } from 'humanloop';
 // import modules
 import alertRouter from './routes/alert.js';
 
@@ -31,7 +30,6 @@ const start = async () => {
   } catch (err) {
     console.error(err);
   }
-  ;
-}
+};
 
 start();
