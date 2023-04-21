@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { StatusCodes } from 'http-status-codes';
 
 // todo: create factory function to create options object
 
@@ -32,6 +33,7 @@ const postOptionsFactory = (grossSales, txnCount, timeIn) => {
 };
 
 const getAlertGPT4 = async (req, res) => {
+  // console.log(req.body);
   // destructure inputs from request body
   const { grossSales, txnCount, timeIn } = req.body;
   // create options object for axios request
@@ -43,12 +45,12 @@ const getAlertGPT4 = async (req, res) => {
     // destructure output from gptResponse
     const { output } = gptResponse.data.data[0];
 
-    res.status(200).json({
-      // split output by newline and filter out empty strings
+    res.status(StatusCodes.OK).json({
+      // normalize response: split output by newline and filter out empty strings
       gptData: output.split('\n').filter((val) => val !== ''),
     });
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: err.message });
   }
 };
 
