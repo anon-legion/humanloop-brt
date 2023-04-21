@@ -13,8 +13,7 @@ const postOptionsFactory = (grossSales, txnCount, timeIn) => {
     headers: {
       accept: 'application/json',
       'Content-Type': 'application/json',
-      'X-API-KEY': 'hl_sk_e60a6fa9b619b25193743dd4a64e6391ec2f595b127b0b56',
-      // 'X-API-KEY': process.env.HUMANLOOP_API_KEY,
+      'X-API-KEY': process.env.HUMANLOOP_API_KEY,
     },
     data: {
       project: 'BRT',
@@ -25,8 +24,7 @@ const postOptionsFactory = (grossSales, txnCount, timeIn) => {
         currentTime: `${now.getHours()}:${now.getMinutes()}`,
       },
       provider_api_keys: {
-        openai: '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',
-        // openai: process.env.OPENAI_API_KEY,
+        openai: process.env.OPENAI_API_KEY,
       },
     },
   };
