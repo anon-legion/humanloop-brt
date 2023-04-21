@@ -34,4 +34,5 @@ const start = async () => {
   }
 };
 
+// spin up server
 start();
