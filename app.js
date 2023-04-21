@@ -6,6 +6,7 @@ import xss from 'xss-clean';
 // import modules
 import alertRouter from './routes/alert.js';
 import notFoundMiddleware from './middleware/not-found.js';
+import errorHandlerMiddleware from './middleware/error-handler.js';
 
 // initialize dotenv
 dotenv.config();
@@ -24,6 +25,7 @@ app.use('/api/v1/alert', alertRouter);
 
 // 404 and error handler middleware to catch request errors from routes
 app.use(notFoundMiddleware);
+app.use(errorHandlerMiddleware);
 
 // start server function
 const start = async () => {
